@@ -5,3 +5,7 @@ Scripts are as follows:
 3. Changes the working directory to the user’s home directory
 4. List files in current directory in long format
 5. Display current directory contents, including hidden files (starting with .)
+6. Display current directory contents. 
+	Long format
+	with user and group IDs displayed numerically
+	And hidden files (starting with .)
