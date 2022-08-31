@@ -18,3 +18,4 @@ Scripts are as follows:
 12. Prints the type of the file named iamafile
 13. Create a symbolic link
 14. Copy HTML files to parent directory
+15. Move all files with first letter in uppercase to tmp/u file
