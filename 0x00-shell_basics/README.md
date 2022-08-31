@@ -10,3 +10,4 @@ Scripts are as follows:
 	with user and group IDs displayed numerically
 	And hidden files (starting with .)
 7. Creates a directory named my_first_directory in the /tmp/ directory.
+8. Move the file betty from /tmp/ to /tmp/my_first_directory
