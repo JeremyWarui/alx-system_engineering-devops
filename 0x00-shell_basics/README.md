@@ -16,3 +16,4 @@ Scripts are as follows:
 10. Changes the working directory to the previous one.
 11. List all files in current, parent and /boot directory
 12. Prints the type of the file named iamafile
+13. Create a symbolic link
