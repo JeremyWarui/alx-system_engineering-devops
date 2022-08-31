@@ -9,3 +9,4 @@ Scripts are as follows:
 	Long format
 	with user and group IDs displayed numerically
 	And hidden files (starting with .)
+7. Creates a directory named my_first_directory in the /tmp/ directory.
