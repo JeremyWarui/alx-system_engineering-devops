@@ -10,3 +10,4 @@ Bash scripts on permissions
 8. Execution rights to all
 9. Give the world all the rights
 10. Let see John Doe
+11. Change mode in reference to another file
