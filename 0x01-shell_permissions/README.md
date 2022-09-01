@@ -7,3 +7,4 @@ Bash scripts on permissions
 5. Create empty file hello
 6. Allow owner of file to execute
 7. GIve user and group read and execute rights and others read rights
+8. Execution rights to all
