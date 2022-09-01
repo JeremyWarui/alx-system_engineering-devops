@@ -5,3 +5,4 @@ Bash scripts on permissions
 3. Which groups i am in
 4. Change owner to betty
 5. Create empty file hello
+6. Allow owner of file to execute
