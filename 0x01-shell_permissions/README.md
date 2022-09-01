@@ -11,3 +11,4 @@ Bash scripts on permissions
 9. Give the world all the rights
 10. Let see John Doe
 11. Change mode in reference to another file
+12. Add execution rights to directories in the current directory
