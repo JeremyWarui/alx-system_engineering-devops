@@ -9,3 +9,4 @@ Bash scripts on permissions
 7. GIve user and group read and execute rights and others read rights
 8. Execution rights to all
 9. Give the world all the rights
+10. Let see John Doe
