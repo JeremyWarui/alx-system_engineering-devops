@@ -4,3 +4,4 @@ Bash scripts on permissions
 2. Who am I(username)
 3. Which groups i am in
 4. Change owner to betty
+5. Create empty file hello
