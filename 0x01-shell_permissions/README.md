@@ -16,3 +16,4 @@ Bash scripts on permissions
 14. Change group owner
 15. Change group and owner of directory
 16. Change ower and group owner of symbolic link
+17. Change owner if only
