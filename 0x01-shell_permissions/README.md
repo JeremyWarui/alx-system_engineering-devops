@@ -12,3 +12,4 @@ Bash scripts on permissions
 10. Let see John Doe
 11. Change mode in reference to another file
 12. Add execution rights to directories in the current directory
+13. Create dir with permissions
