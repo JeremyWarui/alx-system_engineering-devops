@@ -14,3 +14,4 @@ Bash scripts on permissions
 12. Add execution rights to directories in the current directory
 13. Create dir with permissions
 14. Change group owner
+15. Change group and owner of directory
