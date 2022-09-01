@@ -15,3 +15,4 @@ Bash scripts on permissions
 13. Create dir with permissions
 14. Change group owner
 15. Change group and owner of directory
+16. Change ower and group owner of symbolic link
