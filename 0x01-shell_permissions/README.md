@@ -8,3 +8,4 @@ Bash scripts on permissions
 6. Allow owner of file to execute
 7. GIve user and group read and execute rights and others read rights
 8. Execution rights to all
+9. Give the world all the rights
