@@ -7,3 +7,4 @@ REDIRECTION SCRIPTS FOR SHELL:
 3. Display content of two files
 4. Display last 10 lines of the file
 5. Display first 10 lines of the file
+6. Display third line of the file
