@@ -5,3 +5,4 @@ REDIRECTION SCRIPTS FOR SHELL:
 1. print "(Ôo)' smiley
 2. Print the contents of the file
 3. Display content of two files
+4. Display last 10 lines of the file
