@@ -8,3 +8,4 @@ REDIRECTION SCRIPTS FOR SHELL:
 4. Display last 10 lines of the file
 5. Display first 10 lines of the file
 6. Display third line of the file
+7. Name file with special characters
