@@ -12,3 +12,4 @@ REDIRECTION SCRIPTS FOR SHELL:
 8. Save current state of directory
 9. Duplicate last line
 10. NO more Js
+11. ALL directories and sub directories
