@@ -13,3 +13,4 @@ REDIRECTION SCRIPTS FOR SHELL:
 9. Duplicate last line
 10. NO more Js
 11. ALL directories and sub directories
+12. LIst files from the latest file
