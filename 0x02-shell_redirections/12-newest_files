@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -t -I README.md | cat
+ls -t -I README.md | cat | head -10
