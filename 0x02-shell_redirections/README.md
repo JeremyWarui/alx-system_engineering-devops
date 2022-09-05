@@ -11,3 +11,4 @@ REDIRECTION SCRIPTS FOR SHELL:
 7. Name file with special characters
 8. Save current state of directory
 9. Duplicate last line
+10. NO more Js
