@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Script lists content in current directory without initial #- in filenames
+for files in *;
+do
+	echo "$files" | cut -f2 -d "-"
+done
