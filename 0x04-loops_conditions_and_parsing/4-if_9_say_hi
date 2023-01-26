@@ -3,7 +3,7 @@
 # then "Hi"
 # using while loop
 count=1
-while [ "$count" -lt 10 ];
+while [ "$count" -le 10 ];
 do
 	echo "Best School"
 	if [ "$count" -eq 9 ];
