@@ -21,7 +21,7 @@ int infinite_while(void)
  * Return: infinite_while zombies
  */
 
-int main()
+int main(void)
 {
 	unsigned int i;
 	pid_t child;
