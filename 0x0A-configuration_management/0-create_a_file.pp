@@ -1,4 +1,5 @@
 # Using Puppet, create a file in /tmp.
+
 file { '/tmp/school':
     path    => '/tmp/school'
     content => 'I love Puppet'
