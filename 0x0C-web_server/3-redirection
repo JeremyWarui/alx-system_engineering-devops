@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # install nginx server in our server
-string_n="\\\trewrite ^/redirect_me(.*)$ https://example.com;\n"
+string_n="\\\trewrite ^/redirect_me(.*)$ https://example.com permanent;\n"
 sudo apt-get -y update
 sudo apt-get -y install nginx
 echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html
