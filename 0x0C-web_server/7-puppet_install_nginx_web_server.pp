@@ -59,7 +59,7 @@ server {
 }
 "
 #write config on default nginx
-exec { 'printf':
+exec { printf :
   command  => 'printf "%s\n" "$server_str" > /etc/nginx/sites-available/default',
   path     => '/usr/bin/printf'
 }
