@@ -4,27 +4,27 @@
 
 #update
 exec { 'apt-update':
-	command  => 'apt-get -y update'
+  command => 'apt-get -y update'
 }
 
 #install nginx
 package { 'nginx':
-	require  => Exec['apt-update'],
-	ensure   => installed
+  ensure  => installed,
+  require => Exec['apt-update']
 }
 
 #write on file default "hello world"
 file { 'var/www/html/index.nginx-debian.html':
-	path     => 'var/www/html/index.nginx-debian.html',
-	ensure   => file,
-	content  => 'Hello World',
+  ensure  => file,
+  path    => 'var/www/html/index.nginx-debian.html',
+  content => 'Hello World',
 }
 
 #write on custom 404 
 file { '/usr/share/nginx/html/custom_404.html':
-	path     => '/usr/share/nginx/html/custom_404.html',
-	ensure   => file,
-	content  => "Ceci n'est pas une page"
+  ensure  => file,
+  path    => '/usr/share/nginx/html/custom_404.html',
+  content => "Ceci n'est pas une page"
 }
 
 
@@ -39,11 +39,11 @@ server {
 	root /var/www/html;
 	index index.html index.htm index.nginx-debian.html;
 
-        server_name _;
+  server_name _;
 
-        location / {
-                try_files $uri $uri/ =404;
-        }
+  location / {
+		try_files $uri $uri/ =404;
+  }
 
 	location /redirect_me {
 		return 301 https://google.com;
@@ -59,9 +59,9 @@ server {
 "
 #write config on default nginx
 exec { 'printf':
-	command  => 'printf "%s\n" "$server_str" > /etc/nginx/sites-available/default'
+  command  => 'printf "%s\n" "$server_str" > /etc/nginx/sites-available/default'
 }
 
 exec { 'service':
-	command  => 'sudo service nginx restart'
+  command  => 'sudo service nginx restart'
 }
