@@ -4,7 +4,8 @@
 
 #update
 exec { 'apt-update':
-  command => 'apt-get -y update'
+  command => 'apt-get -y update',
+  path    => '/usr/bin/apt-get update'
 }
 
 #install nginx
@@ -14,9 +15,9 @@ package { 'nginx':
 }
 
 #write on file default "hello world"
-file { 'var/www/html/index.nginx-debian.html':
+file { '/var/www/html/index.nginx-debian.html':
   ensure  => file,
-  path    => 'var/www/html/index.nginx-debian.html',
+  path    => '/var/www/html/index.nginx-debian.html',
   content => 'Hello World',
 }
 
@@ -59,9 +60,12 @@ server {
 "
 #write config on default nginx
 exec { 'printf':
-  command  => 'printf "%s\n" $server_str > /etc/nginx/sites-available/default'
+  command  => 'printf "%s\n" "$server_str" > /etc/nginx/sites-available/default',
+  path     => '/usr/bin/printf'
 }
 
+
 exec { 'service':
-  command  => 'sudo service nginx restart'
+  command  => 'sudo service nginx restart',
+  path     => '/usr/sbin/service'
 }
