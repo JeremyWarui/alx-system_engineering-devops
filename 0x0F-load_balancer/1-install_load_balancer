@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+# install HAproxy as load balancer
+# configure the load balancer to serve our servers
+# distribute requests using roundrobin algo
+# to send traffic to both web-01 and web-02
+
+sudo apt-get install -y --no-install-recommends software-properties-common
+sudo add-apt-repository -y ppa:vbernat/haproxy-2.6
+sudo apt-get update -y
+
+#install load balancer
+sudo apt-get install -y haproxy=2.6.\*
+
+sudo echo -e "
+global
+\tuser haproxy
+\tgroup haproxy
+\tlog stdout local0 notice
+\tmaxconn 2000
+defaults
+\tlog  global
+\tmode http
+\tbalance roundrobin
+listen
+\tbind *:80
+\tserver 107478-web-01 54.236.56.164 check
+\tserver 107478-web-02 54.90.17.105 check
+" | sudo tee /etc/haproxy/haproxy.cfg
+
+sudo service haproxy restart
