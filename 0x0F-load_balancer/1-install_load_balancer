@@ -1,4 +1,4 @@
-!/usr/bin/env bash
+#!/usr/bin/env bash
 # install HAproxy as load balancer
 # configure the load balancer to serve our servers
 # distribute requests using roundrobin algo
