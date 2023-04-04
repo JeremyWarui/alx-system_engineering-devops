@@ -4,35 +4,80 @@
 # distribute requests using roundrobin algo
 # to send traffic to both web-01 and web-02
 
-sudo apt-get install -y --no-install-recommends software-properties-common
-sudo add-apt-repository -y ppa:vbernat/haproxy-2.6
 sudo apt-get update -y
 
 #install load balancer
-sudo apt-get install -y haproxy=2.6.\*
+sudo apt-get install -y haproxy
 #init script
 echo "ENABLED=1" | sudo tee /etc/default/haproxy
 
 #back up copy of default config file
-sudo cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.org
+sudo mv /etc/haproxy/haproxy.cfg{,.original}
+sudo touch /etc/haproxy/haproxy.cfg
 
 #edit haproxy config
 sudo echo -e "
-frontend main
+global
+\tlog 54.236.56.164 local0 notice
+\tmaxconn 2000
+\tuser haproxy
+\tgroup haproxy
+defaults
+\tlog     global
+\tmode    http
+\toption  httplog
+\toption  dontlognull
+\tretries 3
+\toption redispatch
+\ttimeout connect  5000
+#!/usr/bin/env bash
+# install HAproxy as load balancer
+# configure the load balancer to serve our servers
+# distribute requests using roundrobin algo
+# to send traffic to both web-01 and web-02
+
+sudo apt-get update -y
+
+#install load balancer
+sudo apt-get install -y haproxy
+#init script
+echo "ENABLED=1" | sudo tee /etc/default/haproxy
+
+#back up copy of default config file
+sudo mv /etc/haproxy/haproxy.cfg{,.original}
+sudo touch /etc/haproxy/haproxy.cfg
+
+#edit haproxy config
+sudo echo -e "
+global
+\tlog 54.236.56.164 local0 notice
+\tmaxconn 2000
+\tuser haproxy
+\tgroup haproxy
+defaults
+\tlog     global
+\tmode    http
+\toption  httplog
+\toption  dontlognull
+\tretries 3
+\toption redispatch
+\ttimeout connect  5000
+\ttimeout client  10000
+\ttimeout server  10000
+listen appname
+\tbind :80
 \tmode http
-\tbind *:80
-\tdefault_backend backend_servers
-backend backend_servers
+\tstats enable
+\tstats uri /haproxy?stats
 \tbalance roundrobin
+\toption httpclose
 \toption forwardfor
-\thttp-request set-header X-Forwarded-Port %[dst_port]
-\thttp-request add-header X-Forwarded-Proto https if { ssl_fc }
-\toption httpchk HEAD / HTTP/1.1\r\nHost:localhost
 \tserver 107478-web-01 54.236.56.164:80 check
 \tserver 107478-web-02 54.90.17.105:80 check
-" | sudo tee -a /etc/haproxy/haproxy.cfg
+" | sudo tee /etc/haproxy/haproxy.cfg
 
 #verify config syntax of the configuration
 sudo haproxy -c -f /etc/haproxy/haproxy.cfg
 
 sudo service haproxy restart
+
