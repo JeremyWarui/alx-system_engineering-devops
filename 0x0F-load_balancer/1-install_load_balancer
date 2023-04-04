@@ -27,4 +27,4 @@ listen
 \tserver 107478-web-02 54.90.17.105 check
 " | sudo tee /etc/haproxy/haproxy.cfg
 
-sudo service haproxy restart
+#sudo service haproxy restart
