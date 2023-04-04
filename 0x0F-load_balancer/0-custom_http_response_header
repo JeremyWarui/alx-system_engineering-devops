@@ -8,7 +8,7 @@
 
 string_n="\\\tlocation /redirect_me {\n\t\t return 301 https://google.com;\n\t}\n"
 NOTFOUND="\\\terror_page 404 /custom_404.html;\n\\tlocation /custom_404.html {\n\t\t root /usr/share/nginx/html;\n\t\tinternal;\n\t}\n"
-header="add_header X-Served_By $HOSTNAME"
+header="add_header X-Served-By \"$HOSTNAME\";"
 
 sudo apt-get -y update
 sudo apt-get -y install nginx
