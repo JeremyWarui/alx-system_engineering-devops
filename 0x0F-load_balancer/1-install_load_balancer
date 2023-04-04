@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+!/usr/bin/env bash
 # install HAproxy as load balancer
 # configure the load balancer to serve our servers
 # distribute requests using roundrobin algo
@@ -18,13 +18,16 @@ sudo cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.org
 
 #edit haproxy config
 sudo echo -e "
-frontend appname 
+frontend main
 \tmode http
 \tbind *:80
-\tdefault_backend web_servers
-backend web_servers
+\tdefault_backend backend_servers
+backend backend_servers
 \tbalance roundrobin
 \toption forwardfor
+\thttp-request set-header X-Forwarded-Port %[dst_port]
+\thttp-request add-header X-Forwarded-Proto https if { ssl_fc }
+\toption httpchk HEAD / HTTP/1.1\r\nHost:localhost
 \tserver 107478-web-01 54.236.56.164:80 check
 \tserver 107478-web-02 54.90.17.105:80 check
 " | sudo tee -a /etc/haproxy/haproxy.cfg
