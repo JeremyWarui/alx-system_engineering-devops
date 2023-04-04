@@ -1,0 +1,7 @@
+
+global
+	log stdout local0 notice
+	maxconn 2000
+defaults
+	log global
+
