@@ -18,13 +18,13 @@ sudo cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.org
 
 #edit haproxy config
 sudo echo -e "
-\n
-frontend www.warui.tech
-\tbind :80
+frontend appname 
+\tmode http
+\tbind *:80
 \tdefault_backend web_servers
-\n
 backend web_servers
 \tbalance roundrobin
+\toption forwardfor
 \tserver 107478-web-01 54.236.56.164:80 check
 \tserver 107478-web-02 54.90.17.105:80 check
 " | sudo tee -a /etc/haproxy/haproxy.cfg
