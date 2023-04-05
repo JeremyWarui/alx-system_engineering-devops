@@ -1,4 +1,3 @@
 #!/usr/bin/env bash
-#Fix curl error message by starting Apache server
-
+#fix curl 0:8080 error by starting apache to return "Hello Holberton"
 sudo service apache2 start
