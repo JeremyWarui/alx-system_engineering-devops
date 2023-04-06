@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#script to fix nginx error to serve on port 80
+#script to fix nginx error to serve on port 80 with minimum cmds
 #instead of port 8080 
-sudo sed -i 's/8080/80/' /etc/nginx/sites-enabled/default
-service nginx restart
+sudo sed -i 's/sites-enabled/sites-available/' /etc/nginx/nginx.conf
+service nginx start
