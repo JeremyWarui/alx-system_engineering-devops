@@ -9,14 +9,10 @@ print_subdomains()
 
 if [ -z "$2" ];
 then
-    print_subdomains "$1" "www"
-    print_subdomains "$1" "lb-01"
-    print_subdomains "$1" "web-01"
-    print_subdomains "$1" "web-02"
-    # for sub_doms in "www" "lb-01" "web-01" "web-02"
-    # do
-    #     print_subdomains "$1" $sub_doms
-    # done
+    for sub_doms in "www" "lb-01" "web-01" "web-02"
+    do
+        print_subdomains "$1" $sub_doms
+    done
 else
     print_subdomains "$1" "$2"
 fi
