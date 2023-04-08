@@ -3,7 +3,6 @@
 
 print_subdomains()
 {
-    # dig "$2"."$1" +noall +answer
     result=$(dig "$2"."$1" +noall +answer)
     echo "$result $2" | awk -F' ' '{ print "The subdomain " $6 " is a " $4 " record and points to " $5}'
 }
@@ -12,7 +11,7 @@ if [ -z "$2" ];
 then
     for sub_doms in "www" "lb-01" "web-01" "web-02"
     do
-        print_subdomains "$1" $sub_doms
+        print_subdomains "$1" "$sub_doms"
     done
 else
     print_subdomains "$1" "$2"
