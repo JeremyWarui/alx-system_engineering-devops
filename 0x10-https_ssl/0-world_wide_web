@@ -5,7 +5,7 @@ print_subdomains()
 {
     # dig "$2"."$1" +noall +answer
     result=$(dig "$2"."$1" +noall +answer)
-    echo "$result $2" | awk -F' ' '{ print "The subdomain " $6 " is a " $4 " record and points to " $5 }'
+    echo "$result $2" | awk -F' ' '{ print "The subdomain " $6 " is a " $4 " record and points to " $5}'
 }
 
 if [ -z "$2" ];
