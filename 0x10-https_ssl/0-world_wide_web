@@ -3,15 +3,20 @@
 
 print_subdomains()
 {
-    result=$(dig "$2"."$1" +noall +answer)
-    echo "$result $2" | awk -F' ' '{ print "The subdomain " $6 " is a " $4 " record and points to " $5}'
+    dig "$2"."$1" | grep -A1 'ANSWER SECTION:' | tail -1 | awk -v sb="$2" '{ print "The subdomain "sb" is a " $4 " record and points to " $5}'
+    # result=$(dig "$2"."$1" +noall +answer)
+    # echo "$result $2" | awk -F' ' '{ print "The subdomain " $6 " is a " $4 " record and points to " $5}'
 }
 
 if [ -z "$2" ];
 then
+    # print_subdomains "$1" "www"
+    # print_subdomains "$1" "lb-01"
+    # print_subdomains "$1" "web-01"
+    # print_subdomains "$1" "web-02"
     for sub_doms in "www" "lb-01" "web-01" "web-02"
     do
-        print_subdomains "$1" $sub_doms
+        print_subdomains "$1" "$sub_doms"
     done
 else
     print_subdomains "$1" "$2"
