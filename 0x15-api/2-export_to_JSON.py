@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 """ script that returns employee info on tasks progress """
+
+import json
 from sys import argv
 import requests
-import json
 
 
 if __name__ == "__main__":
