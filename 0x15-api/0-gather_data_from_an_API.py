@@ -11,8 +11,8 @@ if __name__ == "__main__":
     user = "{}/{}".format(users_url, argv[1])
     response = requests.get(user)
     res_json = response.json()
-    print("Employee {} is done with tasks".format(
-        res_json.get('name')), end="")
+    name = res_json.get('name')
+    print("Employee {} is done with tasks".format(name), end="")
 
     todos = "{}?userId={}".format(todos_url, argv[1])
     res = requests.get(todos)
@@ -24,6 +24,6 @@ if __name__ == "__main__":
     no_of_tasks = len(tasks)
     no_of_done_tasks = len(done_tasks)
 
-    print("({}/{}:)".format(no_of_done_tasks, no_of_tasks))
+    print("({}/{}):".format(no_of_done_tasks, no_of_tasks))
     for task in done_tasks:
         print("\t {}".format(task.get('title')))
