@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# script that returns employee info on tasks progress
+"""script that returns all employees info on tasks progress"""
 import json
 import requests
 from sys import argv
