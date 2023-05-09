@@ -7,7 +7,7 @@ def recurse(subreddit, hot_list=[], after=None):
     """returns a list containing the titles of all hot articles"""
 
     headers = {"User-Agent": "Mozilla/5.0"}
-    params = {"after": "after"}
+    params = {"after": after}
     url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
 
     response = requests.get(url=url, headers=headers, params=params,
@@ -17,11 +17,11 @@ def recurse(subreddit, hot_list=[], after=None):
 
     res_json = response.json()
     posts = res_json.get("data").get("children")
+
     if not posts:
         return hot_list
-    else:
-        for post in posts:
-            hot_list.append(post.get("title"))
+    for post in posts:
+        hot_list.append(post.get("title"))
 
     after = res_json.get("data").get("after")
     if not after:
